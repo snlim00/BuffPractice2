@@ -1,0 +1,3 @@
+NAME,TARGET_STAT,VALUE,DURATION,STACK_TYPE
+TestSpeedUp,ExtraSpeed,5,5,Add
+TestSpeedMult,SpeedMultiplier,0.1,5,Add
