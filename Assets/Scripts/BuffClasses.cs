@@ -55,13 +55,15 @@ public class Buff
 
         for(int i = 0; i < buffData.Count; ++i)
         {
-            BuffName name = Utility.CheckEnumContainsString<BuffName>(buffData[i][nameof(BUFF_DATA_KEY.NAME)].ToString());
+            //BuffName name_ = Utility.CheckEnumContainsString<BuffName>(buffData[i][nameof(BUFF_DATA_KEY.NAME)].ToString());
 
-            StatName statName = Utility.CheckEnumContainsString<StatName>(buffData[i][nameof(BUFF_DATA_KEY.TARGET_STAT)].ToString());
+            BuffName name = Enum.Parse<BuffName>(buffData[i][nameof(BUFF_DATA_KEY.NAME)].ToString());
 
-            StackType stackType = Utility.CheckEnumContainsString<StackType>(buffData[i][nameof(BUFF_DATA_KEY.STACK_TYPE)].ToString());
+            StatName targetStat = Enum.Parse<StatName>(buffData[i][nameof(BUFF_DATA_KEY.TARGET_STAT)].ToString());
 
-            definedBuff[(BuffName)i] = new Buff(name, statName, Convert.ToSingle(buffData[i][nameof(BUFF_DATA_KEY.VALUE)]), Convert.ToSingle(buffData[i][nameof(BUFF_DATA_KEY.DURATION)]), stackType);
+            StackType stackType = Enum.Parse<StackType>(buffData[i][nameof(BUFF_DATA_KEY.STACK_TYPE)].ToString());
+
+            definedBuff[(BuffName)i] = new Buff(name, targetStat, Convert.ToSingle(buffData[i][nameof(BUFF_DATA_KEY.VALUE)]), Convert.ToSingle(buffData[i][nameof(BUFF_DATA_KEY.DURATION)]), stackType);
         }
 
         Buff.Log(definedBuff[BuffName.TestSpeedUp]);

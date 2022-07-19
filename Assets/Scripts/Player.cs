@@ -44,17 +44,13 @@ public class Player : BuffableEntity
 
     private void MoveControl()
     {
-        if(Input.GetAxisRaw("Horizontal") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0)
         {
             Vector2 vel = rig.velocity;
 
             vel.x = Input.GetAxisRaw("Horizontal") * eStat.speed;
 
             rig.velocity = vel;
-        }
-        else
-        {
-            //rig.velocity = Vector2.zero;
         }
 
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
